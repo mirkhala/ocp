@@ -1,0 +1,60 @@
+
+[OSEv3:children]
+nodes
+masters
+etcd
+nfs
+new_nodes
+
+[OSEv3:vars]
+openshift_master_default_subdomain=master.test
+ansible_ssh_user=root
+openshift_master_cluster_hostname=master.test
+openshift_master_cluster_public_hostname=console.test
+openshift_override_hostname_check=true
+deployment_type=openshift-enterprise
+openshift_master_cluster_method=native
+osm_cluster_network_cidr=10.192.0.0/14
+openshift_master_identity_providers=[{'name': 'htpasswd_auth','login': 'true', 'challenge': 'true', 'kind':'HTPasswdPasswordIdentityProvider', 'filename':'/etc/origin/master/htpasswd'}]
+openshift_disable_check=memory_availability,disk_availability
+
+### OppenShift Metrics Vars
+openshift_hosted_metrics_deploy=false
+openshift_hosted_metrics_storage_kind=nfs
+openshift_hosted_metrics_storage_access_modes=['ReadWriteOnce']
+openshift_hosted_metrics_storage_nfs_host=master.test
+openshift_hosted_metrics_storage_nfs_directory=/exports/metrics
+openshift_hosted_metrics_storage_nfs_options='*(rw,root_squash)'
+openshift_hosted_metrics_storage_volume_name=metrics
+openshift_hosted_metrics_storage_volume_size=5Gi
+openshift_hosted_metrics_public_url=https://hawkular-metrics.master.test/hawkular/metrics
+
+### OpenShift Logging Vars
+openshift_hosted_logging_deploy=false
+openshift_hosted_logging_storage_kind=nfs
+openshift_hosted_logging_storage_access_modes=['ReadWriteOnce']
+openshift_hosted_logging_storage_nfs_host=master.test
+openshift_hosted_logging_storage_nfs_directory=/exports/logging-es
+openshift_hosted_logging_storage_nfs_options='*(rw,root_squash)'
+openshift_hosted_logging_storage_volume_name=logging
+openshift_hosted_logging_storage_volume_size=5Gi
+openshift_hosted_logging_hostname=kibana.master.test
+openshift_hosted_logging_elasticsearch_cluster_size=1
+openshift_master_logging_public_url=https://kibana.master.test
+
+
+[nodes]
+master.test  openshift_ip=192.168.1.10 openshift_hostname=master.test connect_to=master.test openshift_schedulable=False
+node1.test  openshift_ip=192.168.1.11 openshift_hostname=node1.test connect_to=node1.test openshift_node_labels="{'region': 'infra'}" openshift_schedulable=True
+
+[masters]
+master.test  openshift_ip=192.168.1.10 openshift_hostname=master.test connect_to=master.test openshift_schedulable=False
+
+[etcd]
+master.test  openshift_ip=192.168.1.10 openshift_hostname=master.test connect_to=master.test openshift_schedulable=False
+
+[nfs]
+master.test  openshift_ip=192.168.1.10 openshift_hostname=master.test connect_to=master.test openshift_schedulable=False
+
+[new_nodes]
+

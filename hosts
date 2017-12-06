@@ -18,7 +18,7 @@ osm_cluster_network_cidr=10.192.0.0/14
 openshift_master_identity_providers=[{'name': 'htpasswd_auth','login': 'true', 'challenge': 'true', 'kind':'HTPasswdPasswordIdentityProvider', 'filename':'/etc/origin/master/htpasswd'}]
 openshift_disable_check=memory_availability,disk_availability
 
-### OppenShift Metrics Vars
+### OpenShift Metrics Vars
 openshift_hosted_metrics_deploy=false
 openshift_hosted_metrics_storage_kind=nfs
 openshift_hosted_metrics_storage_access_modes=['ReadWriteOnce']

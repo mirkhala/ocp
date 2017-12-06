@@ -4,7 +4,7 @@
 <h2 title="planning">Planning</h2>
 <p>La arquitectura a instalar ser&aacute;n tres VM:</p>
 
-<p>Un master que contendrá el etcd, que ade&aacute;ms ser&acute; servidor NFS para almacenamiento de registry, metrics y logging y que servir&aacute; de Bastion para la instalaci&oacute;n</p>
+<p>Un master que contendrá el etcd, que adem&aacute;s ser&aacute; servidor NFS para almacenamiento de registry, metrics y logging y que servir&aacute; de Bastion para la instalaci&oacute;n</p>
 <p>Dos nodos que har&aacute;n las veces de infra y c&oacute;mputo.</p>
 
 <h2 title="requirement">Requirement</h2>

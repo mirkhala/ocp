@@ -1,5 +1,5 @@
 # ocp
-<h2 title="inicio">Manual de Instalaci&oacute;n de OpenShift Container Platform 3.6"</h2>
+<h2 title="inicio">Manual de Instalaci&oacute;n de OpenShift Container Platform 3.x"</h2>
 
 <h2 title="planning">Planning</h2>
 <p>La arquitectura a instalar ser&aacute;n tres VM:</p>
